@@ -36,28 +36,28 @@
     <section class="card-section">
         
         <% for( currency in allCurrencies ){ %> 
-             
-            <article class="card">
-                
-                <h2><%= currency.toUpperCase() %></h2>
-                <% if ( mainCurrency == 'eur') { %> 
-                    <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
-                        <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(3) %> </p>
-                    <% } else  { %> 
-                        <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(8) %> </p>
-                    <% } %> 
-                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+            <div class="card-wrapper">
+                <article class="card">
+                    
+                    <h2><%= currency.toUpperCase() %></h2>
+                    <% if ( mainCurrency == 'eur') { %> 
+                        <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
+                            <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(3) %> </p>
+                        <% } else  { %> 
+                            <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(8) %> </p>
+                        <% } %> 
+                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
 
-                <% } else if ( mainCurrency == 'btc' ) { %> 
-                    <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
-                        <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(3) %> </p>
-                    <% } else  { %> 
-                        <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(8) %> </p>
-                    <% } %> 
-                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
-                <% } %>     
-            </article>
-            
+                    <% } else if ( mainCurrency == 'btc' ) { %> 
+                        <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
+                            <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(3) %> </p>
+                        <% } else  { %> 
+                            <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(8) %> </p>
+                        <% } %> 
+                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                    <% } %>     
+                </article>
+            </div>    
         <% } %> 
                 
     </section>
