@@ -12,17 +12,26 @@
 
 </head>
 <body>
-
-    <h2><%= EURCurrencies.date %> </h2>
+    <header>
+        <h2 class="exchange-date">Latest update: <%= EURCurrencies.date %> </h2>
+    </header>
 
     <section class="card-section">
         
-        <% for( currency in currencies ){ %> 
+        <% for( currency in allCurrencies ){ %> 
+             
             <article class="card">
+                <% let currencyCode = currency %> 
                 <h2><%= currency.toUpperCase() %></h2>
-                <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(3) %> </p>
-                <p class="currency-fullname"><%= currencies[currency] %></p>
+                <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
+                    <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(3) %> </p>
+                <% } else  { %> 
+                    <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(8) %> </p>
+                <% } %> 
+                <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+
             </article>
+            
             <% } %> 
                 
     </section>

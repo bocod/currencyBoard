@@ -9,6 +9,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+header {
+    margin: 1rem 0;
+}
+
+.exchange-date {
+    text-align: center;
+}
+
 .card-section {
     display: flex;
     flex-direction: row;
