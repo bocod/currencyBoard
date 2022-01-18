@@ -1,0 +1,22 @@
+body {
+    font-family: 'Encode Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 1rem;
+    padding: 1rem;
+    width: 200px;
+    background-color: aliceblue;
+    border: 1px solid rgb(201, 216, 201);
+}
+
+.card h2 {
+    text-align: center;
+}
