@@ -20,7 +20,8 @@
         <% for( currency in currencies ){ %> 
             <article class="card">
                 <h2><%= currency.toUpperCase() %></h2>
-                <p><%= currencies[currency] %></p>
+                <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(3) %> </p>
+                <p class="currency-fullname"><%= currencies[currency] %></p>
             </article>
             <% } %> 
                 
