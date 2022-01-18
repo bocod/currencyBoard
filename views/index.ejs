@@ -13,26 +13,123 @@
 </head>
 <body>
     <header>
-        <h2 class="exchange-date">Latest update: <%= EURCurrencies.date %> </h2>
+        <h1>Currencies exchange rate:</h1>
+        <div class="lower-header">
+            <h2>vs ARS (Argentine Peso)</h2>
+            <h3 class="exchange-date">Latest update: <%= eurCurrencies.date %> </h3>
+
+            <div class="buttons-div">
+
+                <form class="button-form" action="/btc" method="get">
+                    <button type="submit">See All Currencies vs BTC</button>
+                </form>
+            
+                <form class="button-form" action="/eur" method="get">
+                    <button type="submit">See All Currencies vs EURO</button>
+                </form>
+                
+            </div>
+                        
+        </div>
     </header>
 
     <section class="card-section">
         
         <% for( currency in allCurrencies ){ %> 
              
-            <article class="card">
-                <% let currencyCode = currency %> 
-                <h2><%= currency.toUpperCase() %></h2>
-                <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
-                    <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(3) %> </p>
-                <% } else  { %> 
-                    <p class="exchange"><%= EURCurrencies.eur[currency].toFixed(8) %> </p>
-                <% } %> 
-                <p class="currency-fullname"><%= allCurrencies[currency] %></p>
-
-            </article>
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>EUR Oficial</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+                
+                    <p class="exchange"><%= eurCurrencies.eur[currency].toFixed(3) %> </p>
+                    
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                    
+                </article>
+            <% } %>
             
-            <% } %> 
+        <% } %> 
+
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>EUR Oficial + imp.</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+                
+                    <p class="exchange"><%= (eurCurrencies.eur[currency]*1.65).toFixed(3) %> </p>
+                    
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                    
+                </article>
+            <% } %>
+            
+        <% } %> 
+
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>USD Oficial</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+                
+                    <p class="exchange"><%= (eurCurrencies.eur[currency]/eurCurrencies.eur.usd).toFixed(3) %> </p>
+                    
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                    
+                </article>
+            <% } %>
+            
+        <% } %> 
+
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>USD Oficial + imp.</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+                
+                    <p class="exchange"><%= ((eurCurrencies.eur[currency]*1.65)/eurCurrencies.eur.usd).toFixed(3) %> </p>
+                    
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                    
+                </article>
+            <% } %>
+            
+        <% } %> 
+        
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>Bitcoin</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+
+                    <p class="exchange"><%= (btcCurrencies.btc[currency]*1.65).toFixed(3) %> </p>                    
+                
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+
+                </article>
+            <% } %>
+            
+        <% } %> 
+        
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <article class="card">
+                    <h2>Ethereum</h2>
+                    <h2><%= currency.toUpperCase() %></h2>
+
+                    <p class="exchange"><%= ((btcCurrencies.btc[currency]*1.65)/btcCurrencies.btc.eth).toFixed(3) %> </p>                    
+                
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+
+                </article>
+            <% } %>
+            
+        <% } %> 
                 
     </section>
 </body>

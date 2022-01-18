@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currencies project</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Currencies exchange rate:</h1>
+        <div class="lower-header">
+            <h2>EUR vs currency</h2>
+            <h3 class="exchange-date">Latest update: <%= primaryCurrencies.date %> </h3>
+
+            <form class="button-form home-button" action="/" method="get">
+                <button type="submit">Home</button>
+            </form>
+            <% if ( mainCurrency == 'eur') { %>
+                <form class="button-form" action="/btc" method="get">
+                    <button type="submit">See Currency vs BTC</button>
+                </form>
+            <% } else if ( mainCurrency == 'btc' ) { %> 
+                <form class="button-form" action="/eur" method="get">
+                    <button type="submit">See Currency vs EURO</button>
+                </form>
+            <% } %> 
+        </div>
+    </header>
+
+    <section class="card-section">
+        
+        <% for( currency in allCurrencies ){ %> 
+             
+            <article class="card">
+                
+                <h2><%= currency.toUpperCase() %></h2>
+                <% if ( mainCurrency == 'eur') { %> 
+                    <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
+                        <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(3) %> </p>
+                    <% } else  { %> 
+                        <p class="exchange"><%= primaryCurrencies.eur[currency].toFixed(8) %> </p>
+                    <% } %> 
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+
+                <% } else if ( mainCurrency == 'btc' ) { %> 
+                    <% if ( !allCurrencies[currency].includes('Bitcoin') ){ %> 
+                        <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(3) %> </p>
+                    <% } else  { %> 
+                        <p class="exchange"><%= primaryCurrencies.btc[currency].toFixed(8) %> </p>
+                    <% } %> 
+                    <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                <% } %>     
+            </article>
+            
+        <% } %> 
+                
+    </section>
+</body>
+</html>

@@ -10,7 +10,37 @@ body {
 }
 
 header {
-    margin: 1rem 0;
+    margin: 1rem;
+}
+
+.lower-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.lower-header button {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: grey;
+    border: none;
+    border-radius: 25px;
+    box-shadow: darkblue 0px 0px 5px;
+}
+
+.home-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.buttons-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .exchange-date {
