@@ -1,3 +1,4 @@
+const { response } = require('express');
 const fetch = require( 'node-fetch' );
 
 module.exports = {
@@ -59,5 +60,14 @@ module.exports = {
             })
         
         res.render( 'rates', { mainCurrency, allCurrencies, primaryCurrencies } ) 
+    },
+    commodities: async (req, res) => {
+        let allCommodities;
+        await fetch( '/' )
+            .then( response => response.json() )
+            .then( commoditiesList => {
+                allCommodities = commoditiesList;
+            })
+        res.send(allCommodities);
     }
 };

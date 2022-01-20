@@ -10,7 +10,11 @@ body {
 }
 
 header {
-    margin: 1rem;
+    background-color: #f2f2f2;
+}
+
+.header-wrapper {
+    padding: 1rem;
 }
 
 .lower-header {
@@ -25,10 +29,10 @@ header {
     padding: 0.5rem;
     font-size: 18px;
     color: #ffffff;
-    background-color: grey;
+    background-color: #13a5dd;
     border: none;
     border-radius: 25px;
-    box-shadow: darkblue 0px 0px 5px;
+    box-shadow: #444444 0px 0px 5px;
     width: 270px;
 }
 
@@ -55,7 +59,7 @@ header {
 }
 
 .card-wrapper :hover {
-    box-shadow: 0px 0px 10px rgb(61, 102, 61);
+    box-shadow: 0px 0px 10px #444444;
 }
 
 .card :hover {
@@ -66,12 +70,15 @@ header {
     margin: 1rem;
     padding: 1rem;
     min-width: 300px;
-    background-color: aliceblue;
-    border: 1px solid rgb(201, 216, 201);
+    background-color: #ffffff;
+    border: 1px solid #d4d4d4;
 }
 
 .card h2 {
+    border-bottom: solid 1.5px #d4d4d4;
+    padding-bottom: 1rem;
     text-align: center;
+    color: #444444;
 }
 
 .exchange {
@@ -79,6 +86,14 @@ header {
     text-align: center;
     font-weight: bold;
     font-size: 2rem;
+}
+
+.exchange-top {
+    padding-bottom: 0.5rem;
+}
+
+.exchange-bottom {
+    padding-top: 0.5rem;
 }
 
 @media (max-width: 799px) {

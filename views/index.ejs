@@ -7,6 +7,7 @@
     <title>Currencies project</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
@@ -14,23 +15,25 @@
 </head>
 <body>
     <header>
-        <h1>Currencies exchange rate:</h1>
-        <div class="lower-header">
-            <h2>vs ARS (Argentine Peso)</h2>
-            <h3 class="exchange-date">Latest update: <%= eurCurrencies.date %> </h3>
+        <div class="header-wrapper">
+            <h1>Currencies exchange rate:</h1>
+            <div class="lower-header">
+                <h2>vs ARS (Argentine Peso)</h2>
+                <h3 class="exchange-date">Latest update: <%= eurCurrencies.date %> </h3>
 
-            <div class="buttons-div">
+                <div class="buttons-div">
 
-                <form class="button-form" action="/btc" method="get">
-                    <button type="submit">See All Currencies vs BTC</button>
-                </form>
-            
-                <form class="button-form" action="/eur" method="get">
-                    <button type="submit">See All Currencies vs EURO</button>
-                </form>
+                    <form class="button-form" action="/btc" method="get">
+                        <button type="submit">See All Currencies vs BTC</button>
+                    </form>
                 
+                    <form class="button-form" action="/eur" method="get">
+                        <button type="submit">See All Currencies vs EURO</button>
+                    </form>
+                    
+                </div>
+                            
             </div>
-                        
         </div>
     </header>
 
@@ -41,12 +44,13 @@
             <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
                 <div class="card-wrapper">
                     <article class="card">
-                        <h2>EUR Oficial</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
+                        <h2><i class="fa">&#xf153;</i> EUR Oficial</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange"><%= eurCurrencies.eur[currency].toFixed(3) %> </p>
+                        <p class="exchange exchange-bottom"><%= eurCurrencies.eur[currency].toFixed(2) %> </p>
                         
-                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                        <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 Euro</p>
+                        <p class="currency-fullname">Only accesible for comex operations</p>
                         
                     </article>
                 </div>    
@@ -59,12 +63,13 @@
             <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
                 <div class="card-wrapper">
                     <article class="card">
-                        <h2>EUR Oficial + imp.</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
+                        <h2><i class="fa">&#xf153;</i> EUR Oficial + imp.</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange"><%= (eurCurrencies.eur[currency]*1.65).toFixed(3) %> </p>
+                        <p class="exchange exchange-bottom"><%= (eurCurrencies.eur[currency]*1.65).toFixed(2) %> </p>
                         
-                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                        <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 Euro</p>
+                        <p class="currency-fullname">Inc. taxes of 30% II.GG + 30% imp. PAIS</p>
                         
                     </article>
                 </div>
@@ -77,12 +82,13 @@
             <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
                 <div class="card-wrapper">
                     <article class="card">
-                        <h2>USD Oficial</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
+                        <h2><i class="fa">&#xf155;</i> USD Oficial</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange"><%= (eurCurrencies.eur[currency]/eurCurrencies.eur.usd).toFixed(3) %> </p>
+                        <p class="exchange exchange-bottom"><%= (eurCurrencies.eur[currency]/eurCurrencies.eur.usd).toFixed(2) %> </p>
                         
-                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                        <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 US Dollar</p>
+                        <p class="currency-fullname">Only accesible for comex operations</p>
                         
                     </article>
                 </div>
@@ -95,31 +101,14 @@
             <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
                 <div class="card-wrapper">
                     <article class="card">
-                        <h2>USD Oficial + imp.</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
+                        <h2><i class="fa">&#xf155;</i> USD Oficial + imp.</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange"><%= ((eurCurrencies.eur[currency]*1.65)/eurCurrencies.eur.usd).toFixed(3) %> </p>
+                        <p class="exchange exchange-bottom"><%= ((eurCurrencies.eur[currency]*1.65)/eurCurrencies.eur.usd).toFixed(2) %> </p>
                         
-                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+                        <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 US Dollar</p>
+                        <p class="currency-fullname">Inc. taxes of 30% II.GG + 30% imp. PAIS</p>
                         
-                    </article>
-                </div>
-            <% } %>
-            
-        <% } %> 
-        
-        <% for( currency in allCurrencies ){ %> 
-             
-            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
-                <div class="card-wrapper">
-                    <article class="card">
-                        <h2>Bitcoin</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
-
-                        <p class="exchange"><%= (btcCurrencies.btc[currency]*1.65).toFixed(3) %> </p>                    
-                    
-                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
-
                     </article>
                 </div>
             <% } %>
@@ -131,10 +120,28 @@
             <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
                 <div class="card-wrapper">
                     <article class="card">
-                        <h2>Ethereum</h2>
-                        <h2><%= currency.toUpperCase() %></h2>
+                        <h2><i class="fab fa-bitcoin"></i> Bitcoin</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
 
-                        <p class="exchange"><%= ((btcCurrencies.btc[currency]*1.65)/btcCurrencies.btc.eth).toFixed(3) %> </p>                    
+                        <p class="exchange exchange-bottom"><%= (btcCurrencies.btc[currency]*1.65).toFixed(2) %> </p>                    
+                    
+                        <p class="currency-fullname"><%= allCurrencies[currency] %></p>
+
+                    </article>
+                </div>
+            <% } %>
+            
+        <% } %> 
+        
+        <% for( currency in allCurrencies ){ %> 
+             
+            <% if ( allCurrencies[currency].includes('Argentine') ){ %> 
+                <div class="card-wrapper">
+                    <article class="card">
+                        <h2><i class="fab fa-ethereum"></i> Ethereum</h2>
+                        <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
+
+                        <p class="exchange exchange-bottom"><%= ((btcCurrencies.btc[currency]*1.65)/btcCurrencies.btc.eth).toFixed(2) %> </p>                    
                     
                         <p class="currency-fullname"><%= allCurrencies[currency] %></p>
 
