@@ -1,7 +1,7 @@
 # CURRENCY BOARD
 
 ## Link to website:
-[Currency Board] (https://currencyboard.herokuapp.com/)
+[Currency Board](https://currencyboard.herokuapp.com/)
 https://currencyboard.herokuapp.com/
 ## Objectives
 
