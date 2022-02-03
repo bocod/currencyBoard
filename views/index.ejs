@@ -16,13 +16,13 @@
 <body>
     <header>
         <div class="header-wrapper">
-            <h1>Currencies exchange rate:</h1>
+            <h1 id="title">Currencies exchange rate:</h1>
             <div class="lower-header">
                 <h2>vs ARS (Argentine Peso)</h2>
                 <h3 class="exchange-date">Latest update: <%= eurCurrencies.date %> </h3>
 
                 <div class="buttons-div">
-
+                    <a href="#title"><button class="button-form up-button"><i class="fas fa-angle-up"></i></button></a>
                     <form class="button-form" action="/btc" method="get">
                         <button type="submit">See All Currencies vs BTC</button>
                     </form>

@@ -16,7 +16,7 @@
 <body>
     <header>
         <div class="header-wrapper">
-            <h1>Currencies exchange rate:</h1>
+            <h1 id="title">Currencies exchange rate:</h1>
             <div class="lower-header">
                 <h2>EUR vs currency</h2>
                 <h3 class="exchange-date">Latest update: <%= primaryCurrencies.date %> </h3>
@@ -24,6 +24,7 @@
                 <form class="button-form home-button" action="/" method="get">
                     <button type="submit">Home</button>
                 </form>
+                <a href="#title"><button class="button-form up-button"><i class="fas fa-angle-up"></i></button></a>
                 <% if ( mainCurrency == 'eur') { %>
                     <form class="button-form" action="/btc" method="get">
                         <button type="submit">See Currency vs BTC</button>
