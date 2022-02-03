@@ -36,6 +36,12 @@ header {
     width: 270px;
 }
 
+.lower-header button:hover {
+    box-shadow: #333 0px 0px 5px 2px;
+    background-color: #0b72bb;
+}
+
+
 .home-button {
     position: absolute;
     top: 1rem;
