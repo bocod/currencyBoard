@@ -66,10 +66,10 @@
                         <h2 id="h2-eur"><i class="fa">&#xf153;</i> EUR Oficial + imp.</h2>
                         <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange exchange-bottom"><%= (eurCurrencies.eur[currency]*1.65).toFixed(2) %> </p>
+                        <p class="exchange exchange-bottom"><%= (eurCurrencies.eur[currency]*1.75).toFixed(2) %> </p>
                         
                         <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 Euro</p>
-                        <p class="currency-fullname">Inc. taxes of 35% II.GG + 30% imp. PAIS</p>
+                        <p class="currency-fullname">Inc. taxes of 45% II.GG + 30% imp. PAIS</p>
                         
                     </article>
                 </div>
@@ -104,10 +104,10 @@
                         <h2 id="h2-usd"><i class="fa">&#xf155;</i> USD Oficial + imp.</h2>
                         <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
                     
-                        <p class="exchange exchange-bottom"><%= ((eurCurrencies.eur[currency]*1.65)/eurCurrencies.eur.usd).toFixed(2) %> </p>
+                        <p class="exchange exchange-bottom"><%= ((eurCurrencies.eur[currency]*1.75)/eurCurrencies.eur.usd).toFixed(2) %> </p>
                         
                         <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 US Dollar</p>
-                        <p class="currency-fullname">Inc. taxes of 35% II.GG + 30% imp. PAIS</p>
+                        <p class="currency-fullname">Inc. taxes of 45% II.GG + 30% imp. PAIS</p>
                         
                     </article>
                 </div>
@@ -123,7 +123,7 @@
                         <h2 id="h2-btc"><i class="fab fa-bitcoin"></i> Bitcoin</h2>
                         <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
 
-                        <p class="exchange exchange-bottom"><%= (btcCurrencies.btc[currency]*1.65).toFixed(2) %> </p>                    
+                        <p class="exchange exchange-bottom"><%= (btcCurrencies.btc[currency]*1.75).toFixed(2) %> </p>                    
                     
                         <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 BTC</p>
 
@@ -141,7 +141,7 @@
                         <h2 id="h2-eth"><i class="fab fa-ethereum"></i> Ethereum</h2>
                         <p class="exchange exchange-top"><%= currency.toUpperCase() %></p>
 
-                        <p class="exchange exchange-bottom"><%= ((btcCurrencies.btc[currency]*1.65)/btcCurrencies.btc.eth).toFixed(2) %> </p>                    
+                        <p class="exchange exchange-bottom"><%= ((btcCurrencies.btc[currency]*1.75)/btcCurrencies.btc.eth).toFixed(2) %> </p>                    
                     
                         <p class="currency-fullname"><%= allCurrencies[currency] %> to buy 1 ETH</p>
 
